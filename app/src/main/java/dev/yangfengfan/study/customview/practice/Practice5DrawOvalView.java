@@ -2,12 +2,15 @@ package dev.yangfengfan.study.customview.practice;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 
 public class Practice5DrawOvalView extends View {
+
+    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     public Practice5DrawOvalView(Context context) {
         super(context);
@@ -26,5 +29,6 @@ public class Practice5DrawOvalView extends View {
         super.onDraw(canvas);
 
 //        练习内容：使用 canvas.drawOval() 方法画椭圆
+        canvas.drawOval(0, 100, 500, 300, paint);
     }
 }

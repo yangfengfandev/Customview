@@ -2,12 +2,15 @@ package dev.yangfengfan.study.customview.practice;
 
 import android.content.Context;
 import android.graphics.Canvas;
+import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
 
 import androidx.annotation.Nullable;
 
 public class Practice8DrawArcView extends View {
+
+    Paint paint = new Paint(Paint.ANTI_ALIAS_FLAG);
 
     public Practice8DrawArcView(Context context) {
         super(context);
@@ -26,5 +29,11 @@ public class Practice8DrawArcView extends View {
         super.onDraw(canvas);
 
 //        练习内容：使用 canvas.drawArc() 方法画弧形和扇形
+
+        paint.setStyle(Paint.Style.FILL); // 填充模式
+        canvas.drawArc(200, 100, 800, 500, -110, 100, true, paint); // 绘制扇形
+        canvas.drawArc(200, 100, 800, 500, 20, 140, false, paint); // 绘制弧形
+        paint.setStyle(Paint.Style.STROKE); // 画线模式
+        canvas.drawArc(200, 100, 800, 500, 180, 60, false, paint); // 绘制不封口的弧形
     }
 }
